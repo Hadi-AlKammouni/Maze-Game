@@ -1,0 +1,56 @@
+/*Game Lab CSS file*/
+
+h1, h2 {
+	text-align: center;
+}
+
+p {
+	width: 600px;
+	margin: 1em auto;
+}
+
+#game {
+	margin: auto;
+	position: relative;
+	height: 300px;
+	width: 500px;
+}
+
+#start, #end {
+	position: absolute;
+	top: 205px;
+	height: 30px;
+	width: 30px;
+	border: 1px solid black;
+	padding: 5px;
+	cursor: default;
+	
+	font-family: "Helvetica", "Arial", sans-serif;
+	font-size: 25pt;
+	text-align: center;
+}
+
+#game #start {
+	background-color: #88ff88;
+	left: 0;
+}
+
+#game #end {
+	background-color: #8888ff;
+	right: 0;
+}
+
+div.boundary {
+	background-color: #eeeeee;
+	border: 1px solid black;
+}
+
+div.boundary.example {
+	margin: auto;
+	width: 100px;
+	height: 25px;
+}
+
+div.youlose {
+	background-color: #ff8888;
+}
