@@ -1,0 +1,1 @@
+/* Javascript Code of the Maze Game */
