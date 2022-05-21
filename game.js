@@ -58,7 +58,7 @@ window.onload = function () {
             }
 
             // A red colored starting game message appears explainig the game
-            status.innerHTML="Game started <br/> Move your mouse from S>>>E without touching the grey walls or going out of the maze boundary"
+            status.innerHTML="Game started <br/> Move your mouse from S>>>E and click on 'E' without touching the grey walls or going out of the maze boundary"
             status.style.color="red"
 
             // Two ways to lose👇:
