@@ -27,5 +27,22 @@ window.onload = function () {
     // Upon clicking on letter S, the game started by calling the startGame function
     start.onclick = function() {startGame()}
 
-    
+    // Entry to startGame function
+    function startGame () {
+
+        // If condition that refreshes the game from zero
+        if(refresh_game=="on"){
+
+            // For loop to iterate and get all the divs element inside the maze boundary (walls) and rechange their background color to the initial one "grey"
+            for (var i = 0; i < boundary.length-1 ; i++){    
+                boundary[i].style.backgroundColor = "grey"; 
+            }
+            // A message appears saying that the user may start playing again upon clicking the letter S
+            // The variable refresh_game is equal to "off" in order to skip the refresh if condition
+            status.innerHTML="You must click on letter S to start playing <br/> Your score is 0" 
+            refresh_game="off"
+            // Upon clicking the letter S, the function startGame is called but now the refresh game condition is false so the else part will occur 
+            start.onclick = function() {startGame()} 
+        }
+    }
 }
