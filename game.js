@@ -60,6 +60,20 @@ window.onload = function () {
             // A red colored starting game message appears explainig the game
             status.innerHTML="Game started <br/> Move your mouse from S>>>E without touching the grey walls or going out of the maze boundary"
             status.style.color="red"
+
+            // Two ways to lose👇:
+
+            //1️⃣ First fault that leads the user to lose is going out the boundary maze if & only if the user isn't in the winning & losing state (check the if condition)
+            // A message "You lost!" appears with instant score & introducing two choices:
+            // Choice 1: continue by clicking letter S again / Choice 2: refresh the game by clicking the blue box
+            // This is done to prevent any cheating 😁
+            document.getElementById("game").addEventListener("mouseleave", mouseLeave);
+            function mouseLeave() {
+                if (winner == "off" && loser == "off"){
+                    mouseOver()
+                    status.innerHTML=`You lost 10 pts!  Your score is ${score} <br/> Click on S if you wanna continue playing / Click on the blue box to refresh the game`
+                }
+            }
         }    
     }
 }
