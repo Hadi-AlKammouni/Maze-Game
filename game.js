@@ -119,6 +119,20 @@ window.onload = function () {
                     winner = "on" // In order to keep tracking the game state
                 }
             }
+
+            // One way to refresh the game from zero👇:
+
+            // The last div element is colored blue
+            // Whenever the user decided to refresh the game from zer, upon clicking on the blue box, the function restart is called
+            // The score will return to zero + refresh_game variable will be equal to "on" in order to: 
+            // Prevent playing again before clicking on letter S / Make sure to turn off any click on letter E & hovering over the walls
+            boundary[5].style.backgroundColor = "blue"; 
+            boundary[5].onclick= function () {restart()}
+            function restart (){
+                score=0
+                refresh_game = "on"
+                startGame() 
+            }
         }    
     }
 }
