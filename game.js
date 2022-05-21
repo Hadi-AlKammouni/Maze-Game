@@ -44,5 +44,22 @@ window.onload = function () {
             // Upon clicking the letter S, the function startGame is called but now the refresh game condition is false so the else part will occur 
             start.onclick = function() {startGame()} 
         }
+
+        // If the refresh_game is not equal to "on", the game will start
+        else{
+
+            // Declaring the variable loser and the variable winner to add conditions corresponding to the game status   
+            let loser = "off"    
+            let winner = "off"
+            
+            // For loop to iterate and get all the divs element inside the maze boundary (walls) and rechange their background color to the initial one "grey"
+            for (var i = 0; i < boundary.length-1 ; i++){    
+                boundary[i].style.backgroundColor = "grey"; 
+            }
+
+            // A red colored starting game message appears explainig the game
+            status.innerHTML="Game started <br/> Move your mouse from S>>>E without touching the grey walls or going out of the maze boundary"
+            status.style.color="red"
+        }    
     }
 }
