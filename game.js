@@ -74,6 +74,27 @@ window.onload = function () {
                     status.innerHTML=`You lost 10 pts!  Your score is ${score} <br/> Click on S if you wanna continue playing / Click on the blue box to refresh the game`
                 }
             }
+
+            //2️⃣ Second fault that leads the user to lose is hovering over the walls in the maze zone ==> the function mouseOver will be called
+            // Color of walls changes into red
+            // A message "You lost!" appears with instant score & introducing two choices: continue or refresh
+            for (var i = 0; i < boundary.length-1 ; i++){ 
+                boundary[i].addEventListener("mouseover", mouseOver) 
+            }
+            function mouseOver() {
+                for (var i = 0; i < boundary.length-1 ; i++){
+                    boundary[i].style.backgroundColor = "red"
+                }
+                score+=-10
+                status.innerHTML=`You lost 10 pts! Your score is ${score} <br/> Click on S if you wanna continue playing / Click on the blue box to restart from 0`
+                status.style.color="red"
+                loser="on" // To do nothing upon clicking on letter E before continuing the game by clicking the letter S again
+                // Removing the eventlistener to stop trigerring upon hovering
+                for (var i = 0; i < boundary.length-1 ; i++){
+                    boundary[i].removeEventListener("mouseover", mouseOver);
+                }
+                  
+            }
         }    
     }
 }
