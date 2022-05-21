@@ -95,6 +95,30 @@ window.onload = function () {
                 }
                   
             }
+
+            // One way to win👇:
+
+            // If the refresh_game is "off" and the game state isn't losing or winning, then the user may win or lose(game is in progress)
+            if (refresh_game == "off" && loser == "off" && winner == "off"){    
+                win.onclick = function() {winGame(loser)}
+            }
+            // Upon clicking letter E, the winGame function is called taking a parameter
+            // If the user state is losing(loser="on") or the user state is winning(winner="on"):
+            // The user won't be able to click letter E again unless continuing the game or refreshing it
+            // Otherwise, a green colored message "You won!" appears with instant score & introducing two choices: 
+            // Choice 1: continue by clicking letter S again / Choice 2: refresh the game by clicking the blue box
+            function winGame(loser) {
+                if (loser=="off" && winner=="off"){
+                    score+=5
+                    status.innerHTML=`You won 5 pts! Your score is ${score} <br/>  Click on S if you wanna continue playing  / Click on the blue box to start from 0`
+                    status.style.color="green"
+                    // Enevtlistener is removed to stop trigerring upon hovering over the walls
+                    for (var i = 0; i < boundary.length-1 ; i++){
+                        boundary[i].removeEventListener("mouseover", mouseOver);
+                    }
+                    winner = "on" // In order to keep tracking the game state
+                }
+            }
         }    
     }
 }
