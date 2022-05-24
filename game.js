@@ -22,7 +22,13 @@ window.onload = function () {
     let score = 0
 
     // Declaring the variable restart_game to accomplish all conditions upon restarting the game
-    let refresh_game = "off"  
+    let refresh_game = "off" 
+    
+    // Declaring time feature variables
+    let live_time=document.getElementById("live-timer")
+    let last_time=document.getElementById("last-timer")
+    let best_time=document.getElementById("best-timer")
+    let records = []
     
     // Upon clicking on letter S, the game started by calling the startGame function
     start.onclick = function() {startGame()}
