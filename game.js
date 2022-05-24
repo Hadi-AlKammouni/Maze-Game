@@ -106,7 +106,7 @@ window.onload = function () {
                 records.push((elapsed_time/1000).toFixed(1))
                 last_time.innerHTML=records[records.length-1]
                 clearInterval(interval);
-                
+
                 loser="on" // To do nothing upon clicking on letter E before continuing the game by clicking the letter S again
                 // Removing the eventlistener to stop trigerring upon hovering
                 for (var i = 0; i < boundary.length-1 ; i++){
@@ -131,6 +131,13 @@ window.onload = function () {
                     score+=5
                     status.innerHTML=`You won 5 pts! Your score is ${score} <br/>  Click on S if you wanna continue playing  / Click on the blue box to start from 0`
                     status.style.color="green"
+
+                    //Time recorded as last duration & best duration as the minimum between all & timer stops
+                    records.push((elapsed_time/1000).toFixed(1))
+                    last_time.innerHTML=records[records.length-1]
+                    best_time.innerHTML=Math.min(...records)
+                    clearInterval(interval);
+                    
                     // Enevtlistener is removed to stop trigerring upon hovering over the walls
                     for (var i = 0; i < boundary.length-1 ; i++){
                         boundary[i].removeEventListener("mouseover", mouseOver);
