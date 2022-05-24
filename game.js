@@ -60,7 +60,7 @@ window.onload = function () {
             elapsed_time = Date.now() - start_time    
             live_time.innerHTML=(elapsed_time/1000).toFixed(1)
             },100)
-            
+
             // Declaring the variable loser and the variable winner to add conditions corresponding to the game status   
             let loser = "off"    
             let winner = "off"
@@ -101,6 +101,12 @@ window.onload = function () {
                 score+=-10
                 status.innerHTML=`You lost 10 pts! Your score is ${score} <br/> Click on S if you wanna continue playing / Click on the blue box to restart from 0`
                 status.style.color="red"
+
+                //Time is recorded as last duration and timer stops
+                records.push((elapsed_time/1000).toFixed(1))
+                last_time.innerHTML=records[records.length-1]
+                clearInterval(interval);
+                
                 loser="on" // To do nothing upon clicking on letter E before continuing the game by clicking the letter S again
                 // Removing the eventlistener to stop trigerring upon hovering
                 for (var i = 0; i < boundary.length-1 ; i++){
