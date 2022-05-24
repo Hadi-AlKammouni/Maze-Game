@@ -54,6 +54,13 @@ window.onload = function () {
         // If the refresh_game is not equal to "on", the game will start
         else{
 
+            // Timer starts
+            let start_time= Date.now()
+            interval = setInterval(function(){
+            elapsed_time = Date.now() - start_time    
+            live_time.innerHTML=(elapsed_time/1000).toFixed(1)
+            },100)
+            
             // Declaring the variable loser and the variable winner to add conditions corresponding to the game status   
             let loser = "off"    
             let winner = "off"
